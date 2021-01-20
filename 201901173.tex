@@ -1,0 +1,250 @@
+% DEVESH MODI
+%  201901173
+
+% PACKAGES
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{comment}
+\usepackage{color}
+\usepackage{graphicx}
+\graphicspath{ {images/} }   % using offline editor {images/} will change
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=black,
+}
+\urlstyle{same}
+
+
+% TITLE
+\title{\bf \textcolor{red}{Graph Theory}}
+\author{Devesh Modi}
+\date{June 2020}
+
+% BEGIN
+\begin{document}
+
+% cover page starts
+\begin{flushleft}   % student's details
+Name: DEVESH K. MODI \\
+Student Id: 201901173
+\end{flushleft}
+
+\vspace{8cm}
+
+\begin{center}
+\huge { \bf \textcolor{red} {PROJECT \\} }
+Course: Discrete Mathematics (SC 205) \\
+Instructor: Prof. Manish K. Gupta \\
+\end{center}
+% cover page ends
+
+\newpage
+
+\maketitle
+
+\tableofcontents
+
+\begin{abstract}
+Discrete mathematics is a study of fundamentally discrete structures rather than continuous. This is a report on graph theory. It contains introduction to graphs and representing a graph followed by a type of graph followed by a real life problem solved \cite{myref} using bipartite graph.\\Note:Here, we will consider only undirected graphs. 
+\end{abstract}
+
+\vspace{1cm}
+
+\section{Introduction}
+Graphs in discrete mathematics is a set of objects which may or may not be somehow related. These objects are called vertices and these relations are represented by edges. Graphs are represented as: \\ $G = (V,E)$ . where, \\ V = Non empty set of vertices = ${v_1,v_2,\dots,v_{|V|}}$ \\ E = Set of edges = ${e_1,e_2,\dots,e_{|E|}}$
+
+\subsection{Representing a graph}
+If two vertices are joined by an edge then those vertices are called adjacent. Degree of a vertex($deg(v)$) in graph is the number of its adjacent vertices.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.37\textwidth]{201901173_fig1}
+    \caption{An example of a simple graph}
+    \label{fig:201901173_fig1}
+\end{figure}
+
+In figure \ref{fig:201901173_fig1},
+\[deg(v_1)=3 , deg(v_2)=1 , deg(v_3)=2 , deg(v_4)=2 , deg(v_5)=0\]
+
+\paragraph{}
+
+A graph can be represented by a matrix in which $(i,j)^{th}$ position is one if i and j are adjacent is 1 else 0 called {\it adjacency matrix}. For figure \ref{fig:201901173_fig1} adjacency matrix is:
+\[\begin{bmatrix}
+&v_1&v_2&v_3&v_4&v_5\\
+v_1->&0&1&1&1&0\\
+v_2->&1&0&0&0&0\\
+v_3->&1&0&0&1&0\\
+v_4->&1&0&1&0&0\\
+v_5->&0&0&0&0&0
+\end{bmatrix}\]
+
+\vspace{2cm}
+
+\section{Some types of graph}
+\subsection{Complete graph}
+A graph in which every pair of distinct vertices are adjacent($K_n$).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{201901173_fig2}
+    \caption{Complete graph $K_6$}
+    \label{fig:201901173_fig2}
+\end{figure}
+
+\subsection{Cycles and Wheels}
+Graph in which all the n vertices form a closed chain only is {\it cyclic graph($C_n n > 2$)}.\\
+Graph in which n vertices form a cycle graph plus one vertex adjacent to every other vertex($W_n n > 2$).
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.25\textwidth]{201901173_fig3}
+    \caption{a.)Cycle graph $C_5$  b.)Wheel graph $W_5$}
+    \label{fig:201901173_fig3}
+\end{figure}
+
+\subsection{Bipartite graph}
+A graph $G = (V,E)$ is a {\it bipartite} if $V = V_1 \cup V_2 $ and an edge coincidence with vertex of $V_1$ is not coincident with any other vertex of $V_1$ and same for $V_2$ .
+
+\vspace{2cm}
+
+\section{Bipartite Graph}
+
+\subsection{Formulating Mathematics}
+We know that the vertices of an edge should be different sets, we can make(or check ) a bipartite graph by keeping vertices of edges in different sets. If we can go through every vertex without any contradiction then the graph is {\it bipartite} graph. This can be obtained using coloring as shown below:
+
+\begin{figure}[h]
+    \includegraphics{201901173_fig4}
+    \caption{Verifying bipartite graph}
+    \label{fig:201901173_fig4}
+\end{figure}
+
+Here, arbitrarily picking vertex b(making it black) and making all its adjacent vertex that are a,d red. Now, make all adjacent vertex of a and d that are h,c,e,f red. Now, make vertex g that are adjacent to h,c,e.At last, make f black which is adjacent to red h and d.So, we get figure \ref{fig:201901173_fig4} b.) from a.).
+
+\section{Solving the mathematics}
+
+\subsection{Question statement}
+An academic institution is going to conduct an examination. It is known to the administration that conduction exams of which subjects cannot be conducted together which could result in cheating. This data is shown using a table. There are 7 seven subjects a,b,c,d,e,f and g(say).
+
+\begin{center}
+\begin{tabular}{ |c| c| c| c| c| c| c| c|}
+\hline
+X & a & b & c & d & e & f & g\\
+\hline
+a & yes & no & yes & no & no & yes & no\\
+b & no & yes & no & yes & no & yes & no\\
+c & yes & no & yes & yes & yes & no & no\\
+d & no & yes & yes & yes & no & no & yes\\
+e & no & no & yes & no & yes & no & yes\\
+f & yes & yes & no & no & no & yes & yes\\
+g & no & no & no & yes & yes & yes & yes\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Solution}
+We are asked to find minimum number of days required to conduct the examinations fairly. So, consider a number of sets equal to the number of minimum days required which contains the subjects which can be conducted on the same day.Considering the above matrix as adjacency matrix of a graph $G = (V,E)$.We get,
+
+\[
+\begin{bmatrix}
+0 & 1 & 0 & 1 & 1 & 0 & 1\\
+1 & 0 & 1 & 0 & 1 & 0 & 1\\
+0 & 1 & 0 & 0 & 0 & 1 & 1\\
+1 & 0 & 0 & 0 & 1 & 1 & 0\\
+1 & 1 & 0 & 1 & 0 & 1 & 1\\
+0 & 0 & 1 & 1 & 1 & 0 & 0\\
+1 & 1 & 1 & 0 & 0 & 0 & 0\\
+\end{bmatrix}\]
+
+\begin{figure}[h]
+    \includegraphics{201901173_fig5}
+    \caption{Graph for above adjacency matrix}
+    \label{fig:201901173_fig5}
+\end{figure}
+
+\subsubsection{Interpretation}
+Our target is to represent this graph as K-partite graph that is we will divide the vertices in $K$ sets such that any two adjacent vertices are not in one set as that two tests cannot be conducted on the same time. We will incorporate this using vertex coloring.
+
+\subsubsection{Solving the mathematics}
+Arbitrarily choosing vertex a and coloring it black. Now, traversing through other vertices b,d,e,g are adjacent to a so they cannot be black. c and f are not adjacent so they can be black if their adjacent vertex is not black. So coloring c black first and then f cannot be colored black. So we get,
+
+\newpage
+
+\begin{figure}[h]
+    \includegraphics{201901173_fig6}
+    \caption{}
+    \label{fig:201901173_fig6}
+\end{figure}
+
+Now, choosing next white vertex b in \ref{fig:201901173_fig6}  and making it red. Now d not adjacent to b is colored red then its turn for f but f is adjacent to red d so it remains white.
+
+\begin{figure}[h]
+    \includegraphics{201901173_fig7}
+    \caption{}
+    \label{fig:201901173_fig7}
+\end{figure}
+
+Now, repeating the same process with new colour for next white vertex e, we get,
+
+\newpage
+
+\begin{figure}[h]
+    \includegraphics{201901173_fig8}
+    \caption{}
+    \label{fig:201901173_fig8}
+\end{figure}
+
+Now, repeating the same for f which the last white vertex in \ref{fig:201901173_fig8} .
+
+\begin{figure}[h]
+    \includegraphics{201901173_fig9}
+    \caption{}
+    \label{fig:201901173_fig9}
+\end{figure}
+
+This can be resultingly done by coloring first vertex with color1. Then, from second vertex color the vertex with the earliest color which has not been the color of any of its adjacent vertex. \href{https://sites.google.com/view/201901173/cpp}{\underline {Link to c++ code}}.
+\paragraph{}
+As we used four different colours we need at least {\bf4} days to conduct the examination.\\ 
+
+\newpage
+
+\subsection{Answer}
+
+Minimum days = Number of colors = 4
+\\
+\begin{tabular}{|c|c|c|}
+\hline
+Time Table & Test1 & test2\\
+\hline
+Day1 & a & c\\
+Day2 & b & d\\
+Day3 & e & g\\
+Day4 & f & -\\
+\hline
+\end{tabular}
+
+\section{Significance}
+Graph is a convenient way to represent various kind of mathematical objects for problem solving techniques.Specifically, vertex coloring used here is a simple way of labelling graph components like vertices or edges under some {\bf constraints}. It is significant in frequency assignment for minimum interference \cite{maa}. In earlier days to print a map with different colored regions it was required to be passed through the printer many times for adjacent region to be in different colour than its neighbour. So, this vertex coloring helped in minimising the efforts and time for printing a map.
+
+
+\begin{figure}[h]
+    \includegraphics{201901173_fig10}
+    \caption{Use of vertex coloring in map printing}
+    \label{fig:201901173_fig10}
+\end{figure}
+
+\section{Link to the site}
+\href{https://sites.google.com/view/201901173/home}{\underline{Link}}
+
+\bibliographystyle{plain}
+\bibliography{201901173.bib}
+
+\end{document}
